@@ -172,14 +172,14 @@ const SongLyricsSectionSchema = z.object({
 	section_type: z.enum(SECTION_TYPES).describe("The type of the section."),
 	start: z.number().int().describe("The start time of the section, in milliseconds."),
 	end: z.number().int().describe("The end time of the section, in milliseconds."),
-	lines: z.array(SongLyricsLineSchema).describe("Lyrics lines contained in the section.")
+	lines: z.array(SongLyricsLineSchema).optional().describe("Lyrics lines contained in the section.")
 })
 
 /**
  * Schema for a generated song choice, including audio URLs and lyrics timing information.
  */
 const SongChoiceSchema = z.object({
-	index: z.number().int().describe("The index of the choice in the list of choices."),
+	index: z.number().int().optional().describe("The index of the choice in the list of choices."),
 	url: z.string().describe("The URL of the generated song."),
 	flac_url: z.string().describe("The URL of the generated song, which is in lossless FLAC audio format."),
 	duration: z.number().int().describe("The duration of the song, in milliseconds."),
