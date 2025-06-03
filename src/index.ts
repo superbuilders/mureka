@@ -494,7 +494,9 @@ const MurekaApiErrorEnvelopeSchema = z.object({
  * Configuration for the Mureka API client.
  */
 interface ClientConfig {
+	/** The API key used for authentication. */
 	apiKey: string
+	/** Optional custom base URL for the API. Defaults to the official Mureka API endpoint. */
 	apiBaseUrl?: string
 }
 
