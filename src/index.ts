@@ -192,11 +192,11 @@ const SongChoiceSchema = z.object({
 const GenerateSongResponseSchema = z.object({
 	id: z.string().describe("Task ID of the asynchronous music generation task."),
 	created_at: z.number().int().describe("The Unix timestamp (in seconds) for when the task was created."),
-	finished_at: z.number().int().describe("The Unix timestamp (in seconds) for when the task was finished."),
+	finished_at: z.number().int().optional().describe("The Unix timestamp (in seconds) for when the task was finished."),
 	model: z.string().describe("The model used for music generation."),
 	status: z.enum(TASK_STATUSES).describe("The current status of the task."),
 	failed_reason: z.string().optional().describe("The reason for the failure."),
-	choices: z.array(SongChoiceSchema).describe("The generated songs, when the status is succeeded.")
+	choices: z.array(SongChoiceSchema).optional().describe("The generated songs, when the status is succeeded.")
 })
 type GenerateSongResponse = z.infer<typeof GenerateSongResponseSchema>
 
