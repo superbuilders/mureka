@@ -6,13 +6,15 @@
       "dependencies": {
         "@biomejs/biome": "^2.0.0-beta.6",
         "@superbuilders/errors": "^2.0.0",
+        "@superbuilders/mureka": "^1.0.0",
         "zod": "^3.25.49",
       },
       "devDependencies": {
         "@types/bun": "latest",
+        "@types/node": "^22.15.29",
       },
       "peerDependencies": {
-        "typescript": "^5",
+        "typescript": "^5.8.3",
       },
     },
   },
@@ -36,6 +38,8 @@
     "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@2.0.0-beta.6", "", { "os": "win32", "cpu": "x64" }, "sha512-zs29t/nxon11dKV+ckQB1yUOmhYx17e2+cHGK8PCVamqVGSMbjrd5evjtlfbnVJXP0ar7nNKhcg4ZWYGJ6aR1w=="],
 
     "@superbuilders/errors": ["@superbuilders/errors@2.0.0", "", { "dependencies": { "@biomejs/biome": "^2.0.0-beta.5" }, "peerDependencies": { "typescript": "^5.8.3" } }, "sha512-mEYTIcjPGQBLDUwAfxyF5ur7h+PbQiNbNZbG/kBziiYE2dnRSJcRL8FiEOQi4bPNUp59TGfCjxUHZ/4z4NpqRw=="],
+
+    "@superbuilders/mureka": ["@superbuilders/mureka@1.0.0", "", { "dependencies": { "@biomejs/biome": "^2.0.0-beta.6", "@superbuilders/errors": "^2.0.0", "zod": "^3.25.49" }, "peerDependencies": { "typescript": "^5.8.3" } }, "sha512-MwEVeMORntJeqTfJXEu3Y6tYJO1uUM4BGeEdBJcUv66Kuekwgn+jLiqXbd7AolsSiGW85vQ1hIprPsVCq4NLZw=="],
 
     "@types/bun": ["@types/bun@1.2.15", "", { "dependencies": { "bun-types": "1.2.15" } }, "sha512-U1ljPdBEphF0nw1MIk0hI7kPg7dFdPyM7EenHsp6W5loNHl7zqy6JQf/RKCgnUn2KDzUpkBwHPnEJEjII594bA=="],
 

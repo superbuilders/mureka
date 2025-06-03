@@ -499,24 +499,122 @@ interface ClientConfig {
 }
 
 /**
- * Mureka API client.
+ * Mureka API client interface providing access to all API endpoints.
+ * 
+ * This interface defines all available methods for interacting with the Mureka AI API,
+ * including music generation, lyrics creation, speech synthesis, and fine-tuning capabilities.
+ * Each method is type-safe and returns a Promise that resolves to the appropriate response type.
  */
 export interface Client {
+	/** 
+	 * Upload a file for various purposes like reference, vocal, melody, etc.
+	 * @param input - Configuration for the file upload including purpose and file data
+	 * @returns Promise resolving to upload response with file ID and metadata
+	 */
 	uploadFile: (input: UploadFileInput) => Promise<UploadFileResponse>
+
+	/** 
+	 * Generate lyrics from a prompt.
+	 * @param input - Configuration including prompt text and generation parameters
+	 * @returns Promise resolving to generated lyrics
+	 */
 	generateLyrics: (input: GenerateLyricsInput) => Promise<GenerateLyricsResponse>
+
+	/** 
+	 * Extend existing lyrics with additional content.
+	 * @param input - Configuration including existing lyrics and extension parameters
+	 * @returns Promise resolving to extended lyrics
+	 */
 	extendLyrics: (input: ExtendLyricsInput) => Promise<ExtendLyricsResponse>
+
+	/** 
+	 * Generate a song using provided lyrics.
+	 * @param input - Configuration including lyrics and generation parameters
+	 * @returns Promise resolving to song generation task details
+	 */
 	generateSong: (input: GenerateSongInput) => Promise<GenerateSongResponse>
+
+	/** 
+	 * Check the status of a song generation task.
+	 * @param input - Task ID and query parameters
+	 * @returns Promise resolving to current task status and results if complete
+	 */
 	querySongTask: (input: QuerySongTaskInput) => Promise<QuerySongTaskResponse>
+
+	/** 
+	 * Split a song into individual tracks.
+	 * @param input - Configuration including song ID and stemming parameters
+	 * @returns Promise resolving to separated audio tracks
+	 */
 	stemSong: (input: StemSongInput) => Promise<StemSongResponse>
+
+	/** 
+	 * Generate instrumental music.
+	 * @param input - Configuration including generation parameters and style preferences
+	 * @returns Promise resolving to instrumental generation task details
+	 */
 	generateInstrumental: (input: GenerateInstrumentalInput) => Promise<GenerateInstrumentalResponse>
+
+	/** 
+	 * Check the status of an instrumental generation task.
+	 * @param input - Task ID and query parameters
+	 * @returns Promise resolving to current task status and results if complete
+	 */
 	queryInstrumentalTask: (input: QueryInstrumentalTaskInput) => Promise<QueryInstrumentalTaskResponse>
+
+	/** 
+	 * Initialize a file upload for fine-tuning.
+	 * @param input - Configuration for the upload including purpose and metadata
+	 * @returns Promise resolving to upload initialization details
+	 */
 	createUpload: (input: CreateUploadInput) => Promise<CreateUploadResponse>
+
+	/** 
+	 * Add parts to an ongoing upload.
+	 * @param input - Configuration including upload ID, part number, and data
+	 * @returns Promise resolving to part upload confirmation
+	 */
 	addUploadPart: (input: AddUploadPartInput) => Promise<AddUploadPartResponse>
+
+	/** 
+	 * Finalize a multipart upload.
+	 * @param input - Configuration including upload ID and completion parameters
+	 * @returns Promise resolving to upload completion confirmation
+	 */
 	completeUpload: (input: CompleteUploadInput) => Promise<CompleteUploadResponse>
+
+	/** 
+	 * Start a fine-tuning task with uploaded files.
+	 * @param input - Configuration including model parameters and training data
+	 * @returns Promise resolving to fine-tuning task details
+	 */
 	createFineTuningTask: (input: CreateFineTuningTaskInput) => Promise<CreateFineTuningTaskResponse>
+
+	/** 
+	 * Check the status of a fine-tuning task.
+	 * @param input - Task ID and query parameters
+	 * @returns Promise resolving to current task status and results if complete
+	 */
 	queryFineTuningTask: (input: QueryFineTuningTaskInput) => Promise<QueryFineTuningTaskResponse>
+
+	/** 
+	 * Convert text to speech using specified voice.
+	 * @param input - Configuration including text content and voice selection
+	 * @returns Promise resolving to generated speech audio URL
+	 */
 	generateSpeech: (input: GenerateSpeechInput) => Promise<GenerateSpeechResponse>
+
+	/** 
+	 * Generate a podcast-style conversation.
+	 * @param input - Configuration including conversation array and generation parameters
+	 * @returns Promise resolving to generated podcast audio URL
+	 */
 	generatePodcast: (input: GeneratePodcastInput) => Promise<GeneratePodcastResponse>
+
+	/** 
+	 * Retrieve account billing information.
+	 * @returns Promise resolving to account balance, spending history, and limits
+	 */
 	getBillingInfo: () => Promise<BillingInfoResponse>
 }
 

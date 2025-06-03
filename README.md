@@ -93,4 +93,4 @@ The client includes comprehensive error handling with specific error types for c
 
 ## License
 
-MIT
+MIT-0
