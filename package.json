@@ -1,6 +1,6 @@
 {
 	"name": "@superbuilders/mureka",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "TypeScript client for the Mureka AI API, providing type-safe access to music generation, lyrics creation, speech synthesis, and fine-tuning capabilities",
 	"module": "dist/index.js",
 	"main": "dist/index.js",
